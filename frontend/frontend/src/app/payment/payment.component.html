@@ -1,0 +1,27 @@
+<div class="payment-form">
+    <h2>Ödeme Formu</h2>
+    <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+      <label for="cardHolderName">Kart Sahibi</label>
+      <input formControlName="cardHolderName" type="text" placeholder="Kart Sahibi">
+      
+      <label for="cardNumber">Kart Numarası</label>
+      <input formControlName="cardNumber" type="text" placeholder="Kart Numarası">
+  
+      <label for="expireMonth">Son Kullanma Ayı</label>
+      <input formControlName="expireMonth" type="text" placeholder="AA">
+  
+      <label for="expireYear">Son Kullanma Yılı</label>
+      <input formControlName="expireYear" type="text" placeholder="YY">
+  
+      <label for="cvc">CVC</label>
+      <input formControlName="cvc" type="text" placeholder="CVC">
+  
+      <button type="submit" [disabled]="isLoading">Ödeme Yap</button>
+    </form>
+  
+    <div *ngIf="response">
+      <h3>Ödeme Sonucu:</h3>
+      <pre>{{ response | json }}</pre>
+    </div>
+  </div>
+  
